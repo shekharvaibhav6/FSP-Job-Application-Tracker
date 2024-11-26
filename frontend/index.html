@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker</title>
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #333;
+    }
+
+    /* Main Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Header Styling */
+    h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: #495057;
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+
+    /* Form Styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      outline: none;
+    }
+
+    form button {
+      align-self: center;
+      width: 150px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(to right, #007bff, #0056b3);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    th {
+      background: #007bff;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    tr:hover {
+      background: #e9ecef;
+    }
+
+    td {
+      color: #495057;
+    }
+
+    /* Action Buttons */
+    .action-btn {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .edit-btn {
+      background-color: #ffc107;
+      color: #212529;
+    }
+
+    .edit-btn:hover {
+      background-color: #e0a800;
+      transform: scale(1.05);
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: #ffffff;
+    }
+
+    .delete-btn:hover {
+      background-color: #bd2130;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Job Application Tracker</h1>
+    <form id="jobForm">
+      <label for="companyName">Company Name:</label>
+      <input type="text" id="companyName" placeholder="Enter Company Name" required>
+      
+      <label for="role">Role:</label>
+      <input type="text" id="role" placeholder="Enter Role" required>
+      
+      <label for="applicationDate">Application Date:</label>
+      <input type="date" id="applicationDate" required>
+      
+      <label for="status">Status:</label>
+      <select id="status">
+        <option value="APPLIED">Applied</option>
+        <option value="INTERVIEWING">Interviewing</option>
+        <option value="OFFERED">Offered</option>
+        <option value="REJECTED">Rejected</option>
+      </select>
+      
+      <label for="notes">Notes:</label>
+      <textarea id="notes" placeholder="Enter additional notes"></textarea>
+      
+      <button type="submit">Add Application</button>
+    </form>
+
+    <h2>Applications</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Role</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="applicationsTable"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    &copy; 2024 Job Application Tracker by Vaibhav Shekhar
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
